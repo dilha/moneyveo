@@ -742,6 +742,13 @@ a {
         line-height: 25px;
     }
 
+    .credit__loan::before {
+        width: 15px;
+        height: 15px;
+        top: 0;
+        left: -17px;
+    }
+
     .credit__top {
         margin-bottom: 25px;
     }

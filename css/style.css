@@ -272,6 +272,10 @@ a {
   padding: 15px 0;
   position: relative;
   margin-bottom: 50px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .select__header {
   background-color: #fff;
@@ -692,6 +696,13 @@ a {
   .select__current, .select__item {
     font-size: 20px;
     line-height: 25px;
+  }
+
+  .credit__loan::before {
+    width: 15px;
+    height: 15px;
+    top: 0;
+    left: -17px;
   }
 
   .credit__top {
