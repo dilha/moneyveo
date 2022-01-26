@@ -1,0 +1,730 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: local("☺"), url("../fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat-Light";
+  src: local("☺"), url("../fonts/Montserrat-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: local("☺"), url("../fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html.light {
+  --color-bg: #fff;
+  --color-text-credit: #848484;
+  --color-text: #000;
+  --color-select-bg: #02517c;
+  --color-theme-bg: #02517c;
+  --color-span: #02517c;
+}
+html.dark {
+  --color-bg: #02517c;
+  --color-text-credit: #ffffff;
+  --color-select-bg: #fff;
+  --color-text: #fff;
+  --color-span: #fff;
+}
+
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  background-color: var(--color-bg);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 800px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.page__text {
+  font-size: 18px;
+  line-height: 20px;
+  color: #848484;
+}
+.page__text span {
+  color: #02517c;
+}
+
+/* burger start */
+.burger {
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 150;
+  width: 64px;
+  height: 64px;
+  border-radius: 11px;
+  background-color: #f3f6fb;
+  padding: 18px 12px;
+}
+.burger.burger--active .burger-line {
+  opacity: 0;
+  -webkit-transition: opacity 0s;
+  transition: opacity 0s;
+}
+.burger.burger--active::after {
+  width: 40px;
+  height: 3px;
+  -webkit-transform: translateY(-12px) rotate(-135deg);
+          transform: translateY(-12px) rotate(-135deg);
+}
+.burger.burger--active::before {
+  -webkit-transform: translateY(13px) rotate(135deg);
+          transform: translateY(13px) rotate(135deg);
+  height: 3px;
+}
+.burger::before, .burger::after {
+  content: "";
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  height: 2px;
+  background-color: #02517c;
+  display: block;
+  margin-bottom: 10px;
+}
+.burger::before {
+  width: 40px;
+}
+.burger::after {
+  margin-bottom: 0;
+  width: 15px;
+}
+.burger-line {
+  background-color: #02517c;
+  width: 20px;
+  height: 2px;
+  display: block;
+  margin-bottom: 10px;
+  -webkit-transition: opacity 0.7s;
+  transition: opacity 0.7s;
+}
+
+/* burger end */
+/* header start */
+.header {
+  padding-top: 55px;
+  margin-bottom: 60px;
+  position: relative;
+}
+.header__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.header__nav {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  bottom: 0;
+  min-height: 100vh;
+  padding: 180px 20px 20px 30px;
+  z-index: 100;
+  -webkit-filter: drop-shadow(8.5px 14.722px 8.5px rgba(1, 1, 1, 0.21));
+          filter: drop-shadow(8.5px 14.722px 8.5px rgba(1, 1, 1, 0.21));
+  background-color: #02517c;
+  min-width: 50%;
+  -webkit-transition: left 0.2s linear;
+  transition: left 0.2s linear;
+}
+.header__nav.active {
+  left: 0;
+}
+.header__menu {
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  font-family: "Montserrat-Regular";
+}
+.header__menu-item {
+  position: relative;
+  padding-left: 50px;
+  font-family: "Montserrat-Regular";
+}
+.header__menu-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.header__menu-item-repay:before {
+  background-image: url(../images/repay.png);
+  width: 37px;
+  height: 27px;
+}
+.header__menu-item-get::before {
+  background-image: url(../images/get.png);
+  top: -4px;
+  width: 32px;
+  height: 32px;
+}
+.header__menu-item-about::before {
+  background-image: url(../images/about.png);
+  top: -4px;
+  width: 32px;
+  height: 32px;
+}
+.header__menu-item-questions::before {
+  background-image: url(../images/questions.png);
+  top: -4px;
+  width: 32px;
+  height: 32px;
+}
+.header__menu-item-bonuses::before {
+  background-image: url(../images/bonuses.png);
+  top: -11px;
+  width: 37px;
+  height: 37px;
+}
+.header__menu-item + .header__menu-item {
+  margin-top: 40px;
+}
+.header__logo {
+  display: none;
+  max-width: 250px;
+}
+.header__logo img {
+  width: 100%;
+}
+.header__logo.active {
+  display: inline-block;
+}
+.header__theme {
+  background-color: var(--color-theme-bg);
+  border: 2px solid #02517c;
+  border-radius: 11px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.header__theme-btn {
+  border: none;
+  background: none;
+  outline: none;
+}
+.header__theme-btn svg {
+  width: 26px;
+  height: 30px;
+  fill: #fff;
+}
+.header__theme-btn.active {
+  background-color: #fff;
+  border-radius: 11px;
+  padding-top: 2px;
+}
+.header__theme-btn.active svg {
+  fill: #000;
+  stroke: #000;
+}
+.header__theme-dark {
+  margin-left: 10px;
+}
+.header__theme-dark svg {
+  stroke: #fff;
+}
+
+/* header end */
+/* country start */
+.select {
+  background-color: var(--color-select-bg);
+  padding: 15px 0;
+  position: relative;
+  margin-bottom: 50px;
+}
+.select__header {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  position: relative;
+}
+.select__header::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 30px;
+  background-image: url(../images/down-arrow.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 16px;
+}
+.select__current, .select__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 24px;
+  line-height: 30px;
+  color: #848484;
+}
+.select__current img, .select__item img {
+  width: 30px;
+  height: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 10px;
+}
+.select__item + .select__item {
+  margin-top: 15px;
+}
+.select__body {
+  position: absolute;
+  padding: 10px 15px;
+  top: 80%;
+  background-color: #fff;
+  width: 100%;
+  z-index: 5;
+  display: none;
+  border-radius: 10px;
+}
+.select__body.active {
+  display: block;
+}
+
+/* country end */
+/* credit start */
+.credit__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+  font-family: "Montserrat-Light";
+}
+.credit__offers, .credit__loan {
+  color: var(--color-text-credit) !important;
+}
+.credit__offers span, .credit__loan span {
+  color: var(--color-span) !important;
+}
+.credit__loan {
+  position: relative;
+}
+.credit__loan::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -30px;
+  background-image: url(../images/dollar.svg);
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.credit__title {
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--color-text);
+  text-align: center;
+  max-width: 450px;
+  font-family: "Montserrat-Regular";
+  margin: 0 auto 35px;
+}
+.credit__inner {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  grid-row-gap: 20px;
+}
+.credit__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 11px;
+  -webkit-filter: drop-shadow(3px 5.196px 1.5px rgba(1, 1, 1, 0.03));
+          filter: drop-shadow(3px 5.196px 1.5px rgba(1, 1, 1, 0.03));
+  background-color: #e8eef7;
+  padding: 20px 0;
+  font-family: "Montserrat-Regular";
+}
+.credit__left {
+  margin-right: 10px;
+}
+.credit__img {
+  margin-bottom: 25px;
+  max-width: 150px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-left: 20px;
+}
+.credit__encouraged {
+  padding: 15px 15px 15px 25px;
+  background-color: #fff;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.credit__encouraged span {
+  display: block;
+  margin-top: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+.credit__encouraged span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(../images/check-mark.svg);
+  width: 18px;
+  height: 18px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.credit__info {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 5px;
+  list-style: disc;
+  padding: 20px 50px 20px 40px;
+  background-color: #fff;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.credit__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 35px;
+}
+.credit__btn {
+  font-family: "Montserrat-Bold";
+  text-transform: uppercase;
+  border-radius: 9px;
+  background-color: #3dae2b;
+  padding: 15px 40px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  line-height: 18px;
+  color: #ffffff;
+  border: none;
+  margin-right: 5px;
+  outline: none;
+}
+.credit__banks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 30px;
+}
+.credit__banks-img {
+  max-width: 60px;
+  max-height: 33px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.credit__banks-img + .credit__banks-img {
+  margin-left: 10px;
+}
+
+/* credit end */
+/* meadia start */
+@media (max-width: 740px) {
+  .header__nav {
+    padding: 180px 10px 10px 15px;
+  }
+
+  .header__menu-item {
+    padding-left: 45px;
+  }
+
+  .credit__info {
+    padding: 20px 20px 20px 30px;
+  }
+
+  .credit__btn {
+    padding: 15px 20px;
+  }
+}
+@media (max-width: 670px) {
+  .page__text {
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+@media (max-width: 600px) {
+  .page__title {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .header {
+    padding-top: 40px;
+    margin-bottom: 50px;
+  }
+
+  .header__menu-item {
+    padding-left: 35px;
+  }
+  .header__menu-item-repay:before {
+    top: -3px;
+    width: 27px;
+    height: 20px;
+  }
+  .header__menu-item-get::before {
+    top: -3px;
+    width: 22px;
+    height: 22px;
+  }
+  .header__menu-item-about::before {
+    top: -3px;
+    width: 22px;
+    height: 22px;
+  }
+  .header__menu-item-questions::before {
+    top: -3px;
+    width: 22px;
+    height: 22px;
+  }
+  .header__menu-item-bonuses::before {
+    top: -10px;
+    width: 27px;
+    height: 27px;
+  }
+
+  .header__menu-item + .header__menu-item {
+    margin-top: 25px;
+  }
+
+  .header__menu {
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .credit__encouraged {
+    padding: 15px 10px 15px 10px;
+    max-width: 140px;
+  }
+
+  .credit__img {
+    max-width: 130px;
+    margin-left: 5px;
+  }
+
+  .credit__info {
+    padding: 10px 10px 10px 30px;
+    max-width: 380px;
+    margin-left: auto;
+  }
+
+  .credit__banks {
+    margin-right: 10px;
+  }
+
+  .credit__btn {
+    padding: 15px;
+    font-size: 13px;
+  }
+
+  .credit__title {
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0 auto 15px;
+  }
+}
+@media (max-width: 500px) {
+  .page__text {
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  .header {
+    padding-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .header__logo {
+    max-width: 200px;
+  }
+
+  .header__theme-btn svg {
+    width: 20px;
+    height: 25px;
+  }
+
+  .credit__btn {
+    padding: 10px;
+    font-size: 11px;
+  }
+
+  .credit__encouraged {
+    max-width: 120px;
+    padding: 5px 10px 5px 10px;
+  }
+
+  .credit__encouraged span::before {
+    top: -3px;
+  }
+
+  .credit__img {
+    max-width: 115px;
+  }
+
+  .credit__banks-img {
+    max-width: 45px;
+    max-height: 30px;
+  }
+}
+@media (max-width: 450px) {
+  .header {
+    padding-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .header__theme-btn svg {
+    width: 18px;
+    height: 20px;
+  }
+
+  .burger {
+    width: 45px;
+    height: 45px;
+    padding: 10px 8px;
+  }
+
+  .burger.burger--active::after {
+    width: 30px;
+    -webkit-transform: translateY(-8px) rotate(-135deg);
+            transform: translateY(-8px) rotate(-135deg);
+  }
+
+  .burger.burger--active::before {
+    width: 30px;
+    -webkit-transform: translateY(7px) rotate(135deg);
+            transform: translateY(7px) rotate(135deg);
+  }
+
+  .burger-line {
+    width: 15px;
+    margin-bottom: 5px;
+  }
+
+  .burger::before {
+    width: 25px;
+    margin-bottom: 5px;
+  }
+
+  .burger::after {
+    width: 10px;
+  }
+
+  .header__logo {
+    max-width: 170px;
+  }
+
+  .header__nav {
+    padding: 110px 10px 10px 15px;
+  }
+
+  .select {
+    margin-bottom: 30px;
+  }
+
+  .select__header {
+    padding: 10px;
+  }
+
+  .select__current, .select__item {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .credit__top {
+    margin-bottom: 25px;
+  }
+
+  .credit__title {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .credit__btn {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+  }
+
+  .credit__info {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    max-width: 190px;
+  }
+
+  .credit__banks {
+    margin-left: auto;
+  }
+
+  .credit__img {
+    margin-bottom: 10px;
+  }
+
+  .credit__encouraged {
+    margin-bottom: 20px;
+  }
+}
+/* meadia end */
