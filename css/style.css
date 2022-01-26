@@ -394,6 +394,7 @@ a {
           filter: drop-shadow(3px 5.196px 1.5px rgba(1, 1, 1, 0.03));
   background-color: #e8eef7;
   padding: 20px 0;
+  position: relative;
   font-family: "Montserrat-Regular";
 }
 .credit__left {
