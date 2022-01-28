@@ -329,6 +329,10 @@ a {
             background-size: cover;
             width: 20px;
             height: 16px;
+            transition: all .2s linear;
+        }
+        &.active::after {
+            transform: translateY(-25%) rotate(180deg);
         }
     }
 
@@ -355,12 +359,14 @@ a {
     &__body {
         position: absolute;
         padding: 10px 15px;
-        top: 80%;
+        top: 90%;
         background-color: #fff;
-        width: 100%;
+        width: 96%;
         z-index: 5;
         display: none;
         border-radius: 10px;
+        background-color: #ffffff;
+        border: 2px solid #02517c;
     }
 
     &__body.active {
@@ -571,6 +577,10 @@ a {
         margin-top: 125px;
     }
 
+    .select__body {
+        width: 95%;
+    }
+
     .header__menu-item {
         padding-left: 35px;
 
@@ -660,7 +670,7 @@ a {
     }
 
     .select {
-        margin-top: 105px;
+        margin-top: 75px;
     }
 
     .header__logo {

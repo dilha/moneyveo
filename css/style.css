@@ -307,6 +307,12 @@ a {
   background-size: cover;
   width: 20px;
   height: 16px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.select__header.active::after {
+  -webkit-transform: translateY(-25%) rotate(180deg);
+          transform: translateY(-25%) rotate(180deg);
 }
 .select__current, .select__item {
   display: -webkit-box;
@@ -332,12 +338,14 @@ a {
 .select__body {
   position: absolute;
   padding: 10px 15px;
-  top: 80%;
+  top: 90%;
   background-color: #fff;
-  width: 100%;
+  width: 96%;
   z-index: 5;
   display: none;
   border-radius: 10px;
+  background-color: #ffffff;
+  border: 2px solid #02517c;
 }
 .select__body.active {
   display: block;
@@ -539,6 +547,10 @@ a {
     margin-top: 125px;
   }
 
+  .select__body {
+    width: 95%;
+  }
+
   .header__menu-item {
     padding-left: 35px;
   }
@@ -620,7 +632,7 @@ a {
   }
 
   .select {
-    margin-top: 105px;
+    margin-top: 75px;
   }
 
   .header__logo {

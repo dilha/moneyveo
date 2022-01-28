@@ -63,6 +63,7 @@ $(document).ready(function () {
 
 
     $('.select__header').on('click', function() {
+       $(this).toggleClass('active')
        $('.select__body').toggleClass('active')
     });
 
@@ -71,6 +72,7 @@ $(document).ready(function () {
     function selectChoose() {
         let text = $(this).html();
                 $('.select__current').html(text);
+                $('.select__header').removeClass('active')
                 $('.select__body').removeClass('active')
         }
 
