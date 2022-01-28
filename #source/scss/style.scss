@@ -176,6 +176,7 @@ a {
         background-color: #02517c;
         min-width: 50%;
         transition: left .2s linear;
+        overflow-y: auto;
 
         &.active {
             left: 0;
